@@ -1,13 +1,15 @@
 Copyright (c) Justin L. Sunday, 2025
 
-All rights reserved.
+All Rights Reserved.
 
-This repository is provided solely for the purposes of a technical interview with Justin L. Sunday, or the company they 
-represent. You may clone, fork, and modify its contents for your personal use during the technical interview process.
+The `DevTest-Candidate` repository is provided solely for use during technical interviews conducted
+by Justin L. Sunday, or the company they represent. You may clone, fork, and modify its contents
+exclusively for evaluation purposes during the interview process.
 
-Redistribution, publication, or sharing of this repository or any part thereof is strictly prohibited without prior
-written permission from Justin L. Sunday, or the company they represent.
+**Prohibited Uses**:
 
-No part of this repository may be used to create derivative works outside the context of this interview.
+- Redistribution or publication of this repository, in full or in part, is strictly prohibited.
+- Sharing the repository or derivative works with anyone else outside the technical interview process is forbidden.
+- Using the repository for any other purpose without explicit written permission is not allowed.
 
-By forking or cloning this repository, you agree to these terms.
+By forking, cloning, or using this repository, you agree to these terms.

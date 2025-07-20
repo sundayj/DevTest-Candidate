@@ -1,0 +1,17 @@
+name: Sync to Candidate Repo
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Interviewer Repository
+        uses: actions/checkout@v2
+
+      - name: Run Sync Script
+        run: ./scripts/sync_to_candidate_repo.sh

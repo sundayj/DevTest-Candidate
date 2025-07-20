@@ -115,7 +115,13 @@ See the **[Interview Distribution Guide](docs/INTERVIEW_DISTRIBUTION.md)** for c
 
 ### For Candidates
 
-If you're here for a technical interview, start with the **[Candidate Setup Guide](docs/CANDIDATE_SETUP.md)** to get the project running quickly.
+1. If you're here for a technical interview, start with the **[Candidate Setup Guide](docs/CANDIDATE_SETUP.md)** to get the project running quickly.
+2. **Work on Your Changes:**
+   Complete the provided tasks in the repository. Make commits as you progress with your implementation.
+3. **Submit Your Work:**
+   - Push your changes to your private fork or create a new private GitHub repository.
+   - Add [sundayj](https://github.com/sundayj) as a collaborator to your private repository.
+   - Optionally, create a **Pull Request** in your private repository and add [sundayj](https://github.com/sundayj) as a reviewer.
 
 ### Key Features for Assessment
 

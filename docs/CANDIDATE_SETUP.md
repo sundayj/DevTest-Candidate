@@ -21,9 +21,12 @@ You'll need:
 
 ### Step 2: Get the Code
 
+- If you have a GitHub Pro account or higher, fork this repository and set it to private.
+- If you cannot fork privately, clone the repository:
+
 ```bash
 # Clone the repository (you should have received the URL)
-git clone <repository-url>
+git clone https://github.com/sundayj/DevTest-Candidate.git
 cd DevTest
 ```
 

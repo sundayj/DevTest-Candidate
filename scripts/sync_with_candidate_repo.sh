@@ -11,6 +11,10 @@ rsync -av --exclude-from='.syncignore' . /tmp/DevTest-Candidate
 # Navigate to the temp directory
 cd /tmp/DevTest-Candidate
 
+# Remove original LICENSE.md and rename DEVTEST_CANDIDATE_LICENSE.md
+rm LICENSE.md
+mv DEVTEST_CANDIDATE_LICENSE.md LICENSE.md
+
 # Check if git is already initialized
 if [ ! -d ".git" ]; then
     git init
