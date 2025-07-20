@@ -1,0 +1,5 @@
+.git
+docs/interviewer/
+.devcontainer/.env
+scripts/create_interview_package.sh
+scripts/create_interview_zip.sh

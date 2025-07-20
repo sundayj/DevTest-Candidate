@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+set -e
+
+# Script to sync repository content with DevTest-Candidate repository
+# Excludes specified files and creates a clean copy
+
+# Create a temporary folder to clean content
+mkdir -p /tmp/DevTest-Candidate
+rsync -av --exclude-from='.syncignore' . /tmp/DevTest-Candidate
+
+# Navigate to the temp directory
+cd /tmp/DevTest-Candidate
+
+# Initialize a fresh Git repository
+git init
+git remote add origin https://github.com/sundayj/DevTest-Candidate.git
+git add .
+git commit -m "Initial commit for DevTest-Candidate"
+git branch -M main
+git push -u origin main
