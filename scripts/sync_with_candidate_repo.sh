@@ -14,7 +14,7 @@ cd /tmp/DevTest-Candidate
 # Check if git is already initialized
 if [ ! -d ".git" ]; then
     git init
-    git remote add origin https://github.com/sundayj/DevTest-Candidate.git
+    git remote add origin git@github.com:sundayj/DevTest-Candidate.git
 fi
 
 git add .
