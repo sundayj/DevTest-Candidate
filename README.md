@@ -89,31 +89,18 @@ See **[Database Seed Data Guide](docs/SEED_DATA.md)** for detailed information a
 
 This project is designed to be an excellent foundation for technical interviews and coding assessments. It provides a realistic Django application with well-structured models but minimal frontend implementation, allowing candidates to demonstrate their skills across different areas.
 
-### For Interviewers
-
-- **[Interview Tasks Guide](docs/INTERVIEW_TASKS.md)** - Comprehensive tasks for different skill levels (Junior, Mid, Senior)
-- **[Interview Scenarios & Examples](docs/INTERVIEW_SCENARIOS.md)** - Practical bug scenarios, sample implementations, and evaluation rubrics
-- **[Interview Distribution Guide](docs/INTERVIEW_DISTRIBUTION.md)** - Secure methods for sharing the project with candidates
-- **[Candidate Setup Guide](docs/CANDIDATE_SETUP.md)** - Quick setup instructions to share with candidates
-
-> **💡 Detailed Task Instructions**: Individual task instruction files with comprehensive implementation guidelines, code examples, and evaluation rubrics are available in the [`docs/interviewer/`](docs/interviewer/) directory. See the [Interviewer README](docs/interviewer/README.md) for the complete list.
-
-#### 🔒 Secure Project Distribution
-
-**Important**: Don't share your repository directly with candidates as they can see git history and potentially find solutions to debugging tasks.
-
-**Quick Distribution Options**:
-```bash
-# Create clean package without git history
-./scripts/create_interview_package.sh
-
-# Or create zip archive
-./scripts/create_interview_zip.sh
-```
-
-See the **[Interview Distribution Guide](docs/INTERVIEW_DISTRIBUTION.md)** for comprehensive security practices and multiple distribution methods.
-
 ### For Candidates
+
+> **🔒 IMPORTANT - Privacy & Redistribution Restrictions**
+> 
+> **Your solution must remain private.** This repository and your work are provided solely for technical interview purposes. You agree to the following restrictions:
+> 
+> - **Do not share** your solutions, code, or any part of this repository with anyone other than your interviewer
+> - **Do not redistribute** or publish this repository or derivative works in any form
+> - **Do not create public repositories** or public forks containing this code
+> - **Keep your work confidential** throughout and after the interview process
+> 
+> By using this repository, you agree to these terms as outlined in the [LICENSE.md](LICENSE.md). Violation of these terms may result in disqualification from the interview process.
 
 1. If you're here for a technical interview, start with the **[Candidate Setup Guide](docs/CANDIDATE_SETUP.md)** to get the project running quickly.
 2. **Work on Your Changes:**

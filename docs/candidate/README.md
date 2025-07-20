@@ -1,6 +1,6 @@
 # DevTest Candidate Tasks
 
-This directory contains candidate-friendly versions of the DevTest interview tasks. These versions have been specifically designed for candidates and exclude implementation details, evaluation criteria, and other interviewer-specific content.
+This directory contains the DevTest interview tasks designed for candidates.
 
 ## Overview
 
@@ -28,31 +28,15 @@ Each task file includes:
 - **Submission Guidelines**: What to submit and how to organize the work
 - **Helpful Resources**: Links to relevant documentation and resources
 
-## What's Different from Interviewer Versions
-
-The candidate versions have been cleaned up to remove:
-
-- Detailed implementation guidelines with code examples
-- Evaluation criteria and scoring rubrics
-- Time management tips and common pitfalls
-- Specific solution approaches and hints
-- Interviewer notes and discussion points
-
 ## Usage Instructions
 
 ### For Candidates
 
-1. Choose the task(s) assigned to you by your interviewer
+1. Choose the task(s) assigned to you
 2. Follow the project setup instructions in each task
 3. Read through the requirements carefully
 4. Implement the solution according to the specifications
 5. Follow the submission guidelines for your deliverables
-
-### For Interviewers
-
-- Use the files in `docs/interviewer/` directory for the complete versions with implementation details
-- These candidate versions can be shared directly with candidates
-- The interviewer versions contain evaluation criteria and expected solutions
 
 ## Getting Started
 
