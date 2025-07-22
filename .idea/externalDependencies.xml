@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ExternalDependencies">
+    <plugin id="Docker" />
+    <plugin id="com.intellij.ml.llm" />
+    <plugin id="com.intellij.python.django" />
+    <plugin id="org.jetbrains.junie" />
+    <plugin id="org.jetbrains.plugins.docker.gateway" />
+  </component>
+</project>

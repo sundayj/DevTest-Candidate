@@ -1,0 +1,7 @@
+{
+  "id": "redis",
+  "version": "1.0.0",
+  "name": "Redis",
+  "description": "Install Redis and start the service.",
+  "options": {}
+}

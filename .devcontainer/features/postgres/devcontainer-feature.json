@@ -1,0 +1,7 @@
+{
+  "id": "postgres",
+  "version": "1.0.0",
+  "name": "PostgreSQL",
+  "description": "Install PostgreSQL and start the default cluster.",
+  "options": {}
+}
