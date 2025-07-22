@@ -1,0 +1,62 @@
+version: '3.9'
+
+services:
+  web:
+    build:
+      context: .devcontainer
+      dockerfile: Dockerfile
+    command: sleep infinity
+    volumes:
+      - .:/app
+    working_dir: /app
+    ports:
+      - "8001:8001"
+    depends_on:
+      - db
+      - redis
+    env_file: .devcontainer/.env
+    networks:
+      - backend
+
+  db:
+    image: postgres:16
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5433:5433"
+    env_file: .devcontainer/.env
+    networks:
+      - backend
+
+  redis:
+    image: redis:7
+    volumes:
+      - redis_data:/data
+    command: redis-server --port 6380
+    ports:
+      - "6380:6380"
+    networks:
+      - backend
+
+  worker:
+    build:
+      context: .devcontainer
+      dockerfile: Dockerfile
+    command: uv run celery -A devtest.config.celery_config worker --loglevel=info
+    volumes:
+      - .:/app
+    working_dir: /app
+    depends_on:
+      - redis
+      - db
+    env_file: .devcontainer/.env
+    networks:
+      - backend
+
+networks:
+  backend:
+    driver: bridge
+
+volumes:
+  postgres_data:
+  redis_data:
