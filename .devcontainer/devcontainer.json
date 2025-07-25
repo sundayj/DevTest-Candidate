@@ -1,0 +1,89 @@
+{
+  "name": "DevTest",
+  "dockerComposeFile": "../docker-compose.yml",
+  "service": "web",
+  // `/workspaces/<repo>` is the default workspace location for Codespaces,
+  // VS Code, and PyCharm Dev Containers. Using it here keeps the path
+  // consistent across all three environments.
+  "workspaceFolder": "/workspaces/devtest",
+  "forwardPorts": [
+    8001,
+    5433,
+    6380,
+    3000
+  ],
+  "portsAttributes": {
+    "8001": {
+      "label": "Django Web Server",
+      "onAutoForward": "notify"
+    },
+    "5433": {
+      "label": "PostgreSQL Database",
+      "onAutoForward": "silent"
+    },
+    "6380": {
+      "label": "Redis Cache",
+      "onAutoForward": "silent"
+    },
+    "3000": {
+      "label": "Documentation Server",
+      "onAutoForward": "notify"
+    }
+  },
+  "containerEnv": {
+    "DJANGO_DEBUG": "True",
+    "DJANGO_DEVELOPMENT": "True",
+    // Keep PYTHONPATH aligned with the workspace folder path
+    "PYTHONPATH": "/workspaces/devtest",
+    "DJANGO_SETTINGS_MODULE": "devtest.config.settings"
+  },
+  "initializeCommand": "[ -f .devcontainer/.env ] || cp .env.example .devcontainer/.env",
+  "postAttachCommand": "uv sync",
+  "customizations": {
+    "jetbrains": {
+      "ide": "PyCharm",
+      "settings": {
+        "com.intellij:app:BuiltInServerOptions.builtInServerPort": 65210,
+        "Git4Idea:app:Git-Application-Settings.use_credential_helper": true,
+        "com.intellij:app:EditorSettings.is_ensure_newline_at_eof": true,
+        "com.intellij:app:EditorSettings.remove_trailing_blank_lines": true,
+        "com.intellij:app:HttpConfigurable.use_proxy_pac": true,
+        "org.jetbrains.plugins.github:app:GithubSettings.clone_git_using_ssh": true,
+        "com.intellij:app:XmlEditorOptions.showCssInlineColorPreview": true
+      },
+      "plugins": [
+        "com.intellij.ml.llm",
+        "org.jetbrains.junie",
+        "org.jetbrains.plugins.docker.gateway",
+        "Docker",
+        "com.intellij.python.django",
+        "com.jetbrains.redis",
+        "org.jetbrains.plugins.yaml",
+        "org.jetbrains.plugins.rest"
+      ]
+    },
+    "vscode": {
+      "settings": {
+        "python.defaultInterpreterPath": "/workspaces/devtest/.venv/bin/python",
+        "python.formatting.provider": "black",
+        "editor.formatOnSave": true
+      },
+      "extensions": [
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "ms-azuretools.vscode-docker",
+        "ms-ossdata.vscode-pgsql",
+        "batisteo.vscode-django",
+        "littlefoxteam.vscode-python-test-adapter",
+        "ms-python.black-formatter",
+        "ms-python.flake8",
+        "cweijan.vscode-database-client2",
+        "oliversturm.redis-vscode",
+        "humao.rest-client",
+        "redhat.vscode-yaml",
+        "eamodio.gitlens",
+        "github.copilot-chat"
+      ]
+    }
+  }
+}

@@ -1,0 +1,154 @@
+{% extends 'app/base.html' %}
+
+{% block title %}Welcome to Library App{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<div class="hero-section text-center">
+    <div class="container">
+        <h1 class="display-4 mb-4">Welcome to Our Digital Library</h1>
+        <p class="lead">Discover, explore, and review thousands of books from talented authors</p>
+    </div>
+</div>
+
+<div class="container my-5">
+    <!-- Library Statistics -->
+    <div class="row mb-5">
+        <div class="col-md-3 col-sm-6 mb-4">
+            <div class="card stat-card h-100 text-center shadow-sm">
+                <div class="card-body">
+                    <h2 class="card-title text-primary display-4">{{ total_books }}</h2>
+                    <p class="card-text text-muted">Books Available</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-6 mb-4">
+            <div class="card stat-card h-100 text-center shadow-sm">
+                <div class="card-body">
+                    <h2 class="card-title text-primary display-4">{{ total_authors }}</h2>
+                    <p class="card-text text-muted">Authors</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-6 mb-4">
+            <div class="card stat-card h-100 text-center shadow-sm">
+                <div class="card-body">
+                    <h2 class="card-title text-primary display-4">{{ total_genres }}</h2>
+                    <p class="card-text text-muted">Genres</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-6 mb-4">
+            <div class="card stat-card h-100 text-center shadow-sm">
+                <div class="card-body">
+                    <h2 class="card-title text-primary display-4">{{ total_reviews }}</h2>
+                    <p class="card-text text-muted">Reviews</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Featured Books -->
+    {% if featured_books %}
+    <div class="mb-5">
+        <h2 class="section-title">Featured Books</h2>
+        <div class="row">
+            {% for book in featured_books %}
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card book-card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ book.title }}</h5>
+                        <h6 class="card-subtitle mb-2 text-primary">by {{ book.author.name }}</h6>
+                        {% if book.avg_rating %}
+                            <div class="rating-stars mb-2">
+                                <span class="font-weight-bold">⭐ {{ book.avg_rating|floatformat:1 }}/5</span>
+                                <small class="text-muted">({{ book.review_count }} review{{ book.review_count|pluralize }})</small>
+                            </div>
+                        {% endif %}
+                        {% if book.genres.all %}
+                            <div class="mt-2">
+                                {% for genre in book.genres.all %}
+                                    <span class="badge badge-secondary genre-badge mr-1">{{ genre.name }}</span>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+
+    <!-- Top Authors -->
+    {% if top_authors %}
+    <div class="mb-5">
+        <h2 class="section-title">Top Rated Authors</h2>
+        <div class="row">
+            {% for author in top_authors %}
+            <div class="col-lg-4 col-md-6 mb-3">
+                <div class="card author-card shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ author.name }}</h5>
+                        <p class="card-text text-muted">
+                            <small>
+                                {{ author.book_count }} book{{ author.book_count|pluralize }}
+                                {% if author.avg_rating %}
+                                    • <span class="rating-stars">⭐ {{ author.avg_rating|floatformat:1 }}/5</span> average rating
+                                {% endif %}
+                            </small>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+
+    <!-- Recent Reviews -->
+    {% if recent_reviews %}
+    <div class="mb-5">
+        <h2 class="section-title">Recent Reviews</h2>
+        <div class="row">
+            {% for review in recent_reviews %}
+            <div class="col-12 mb-3">
+                <div class="card review-card shadow-sm">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start mb-2">
+                            <div>
+                                <h6 class="card-title mb-1">{{ review.book.title }}</h6>
+                                <small class="text-primary">by {{ review.book.author.name }}</small>
+                            </div>
+                            <span class="badge badge-warning rating-stars">⭐ {{ review.rating }}/5</span>
+                        </div>
+                        {% if review.comment %}
+                            <p class="card-text text-muted font-italic">"{{ review.comment|truncatewords:20 }}"</p>
+                        {% endif %}
+                        <small class="text-muted">{{ review.created_at|date:"M d, Y" }}</small>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+
+    <!-- Empty State -->
+    {% if not total_books %}
+    <div class="text-center py-5">
+        <div class="card shadow-sm">
+            <div class="card-body py-5">
+                <h2 class="text-primary mb-4">Welcome to Your New Library!</h2>
+                <p class="lead text-muted mb-4">
+                    It looks like your library is empty. Get started by adding some books through the admin panel.
+                </p>
+                <a href="/admin/" class="btn btn-primary btn-lg">
+                    <i class="fas fa-cog"></i> Go to Admin Panel
+                </a>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

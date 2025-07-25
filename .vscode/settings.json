@@ -1,0 +1,41 @@
+{
+    "terminal.integrated.env.linux": {
+        "VIRTUAL_ENV": "${workspaceFolder}/.venv",
+        "PATH": "${workspaceFolder}/.venv/bin:${env:PATH}"
+    },
+    "terminal.integrated.shellArgs.linux": [
+        "-c",
+        "source ${workspaceFolder}/.venv/bin/activate; exec bash"
+    ],
+    "terminal.integrated.env.windows": {
+        "VIRTUAL_ENV": "${workspaceFolder}\\.venv",
+        "PATH": "${workspaceFolder}\\.venv\\Scripts;${env:PATH}"
+    },
+    "terminal.integrated.shellArgs.windows": [
+        "/k",
+        "${workspaceFolder}\\.venv\\Scripts\\activate"
+    ],
+    "terminal.integrated.env.osx": {
+        "VIRTUAL_ENV": "${workspaceFolder}/.venv",
+        "PATH": "${workspaceFolder}/.venv/bin:${env:PATH}"
+    },
+    "terminal.integrated.shellArgs.osx": [
+        "-c",
+        "source ${workspaceFolder}/.venv/bin/activate; exec bash"
+    ],
+    "pgsql.connections": [
+        {
+            "name": "Local Postgres",
+            "host": "${env:DB_HOST}",
+            "port": "${env:DB_PORT}",
+            "database": "${env:DB_NAME}",
+            "username": "${env:DB_USER}",
+            "password": ""
+        }
+    ],
+    "python.testing.pytestArgs": [
+        "devtest"
+    ],
+    "python.testing.unittestEnabled": false,
+    "python.testing.pytestEnabled": true
+}
